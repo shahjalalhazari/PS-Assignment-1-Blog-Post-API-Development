@@ -1,8 +1,10 @@
 const express = require("express");
 const Joi = require("joi");
+const sanitizeHtml = require('sanitize-html');
+
 const router = express.Router();
 
-// NEW BLOG DB MODEL
+// NEW BLOG MODEL / CLASS
 class Blog {
     constructor({id, title, content, author}) {
         this.id = id;
@@ -16,7 +18,6 @@ class Blog {
 // STORE BLOGS
 const allBlogs = [];
 let BlogId = 1;
-
 
 // BLOG SCHEMA FOR DATA VALIDATION
 const blogSchema = Joi.object({
@@ -32,17 +33,30 @@ router.post("/blogs", (req, res) => {
     // IF INVALID INPUT DATA
     if (error) return res.status(400).json({"error": error.details[0].message})
 
+    // SANITIZE ALL VALUES
+    const sanitizedTitle = sanitizeHtml(value.title, {
+        allowedTags: [],
+        allowedAttributes: {}
+    });
+    const sanitizedContent = sanitizeHtml(value.content, {
+        allowedTags: [],
+        allowedAttributes: {}
+    });
+    const sanitizedAuthor = sanitizeHtml(value.author, {
+        allowedTags: [],
+        allowedAttributes: {}
+    });
+
     // CREATE A BLOG MODEL / CLASS
     const newBlog = new Blog({
         id: BlogId++,
-        title: value.title,
-        content: value.content,
-        author: value.author
+        title: sanitizedTitle,
+        content: sanitizedContent,
+        author: sanitizedAuthor
     });
 
     // ADD NEW BLOG TO ALL BLOGS LIST
     allBlogs.push(newBlog);
-
 
     res.status(201).json({
         "message": "Blos post created successfully",
