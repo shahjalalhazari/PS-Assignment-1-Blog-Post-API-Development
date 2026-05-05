@@ -2,19 +2,34 @@
 
 Assignment-1 of Pocket School Profession Back-End software development program. Where the task was to create / develop a blog post API with only POST & GET methods / endpoints.
 
-## Installation
+## Run Locally
 
-Initeat a new **NODE** project and Install require librares.
+Clone the project
 
 ```bash
-  npm Init
+  git clone https://github.com/shahjalalhazari/PS-Assignment-1-Blog-Post-API-Development
+```
+
+Go to the project directory
+
+```bash
+  cd PS-Assignment-1-Blog-Post-API-Development
+```
+
+Install dependencies
+
+```bash
+  npm install
   npm i express joi
-  ```
+```
 
-** Run Server **
+Start the server
+
 ```bash
-  npm start
-  ```
+  npm run start
+```
+
+##### localhost post is 3000
 
 
 ## API Reference
@@ -30,7 +45,7 @@ Initeat a new **NODE** project and Install require librares.
 | `content` | `string` | **Required**. Minimun **10** characters |
 | `author` | `string` | **Required** |
 
-** Make sure to fullfil all the requirments data mentioned above. **
+##### Make sure to fullfil all the requirments data mentioned above.
 
 #### Screenshots
 - POST REQ
