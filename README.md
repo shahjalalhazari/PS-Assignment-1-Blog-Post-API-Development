@@ -9,13 +9,17 @@ Initeat a new **NODE** project and Install require librares.
 ```bash
   npm Init
   npm i express joi
+  ```
+
+** Run Server **
+```bash
   npm start
   ```
 
 
 ## API Reference
 
-### Post New Blog
+### POST New Blog
 
 ```http
   POST /blogs
@@ -26,8 +30,30 @@ Initeat a new **NODE** project and Install require librares.
 | `content` | `string` | **Required**. Minimun **10** characters |
 | `author` | `string` | **Required** |
 
+** Make sure to fullfil all the requirments data mentioned above. **
 
 #### Screenshots
 - POST REQ
 
 ![fad Screenshot](https://i.ibb.co/gZwBwds3/SUCCESSFULL-POST-REQ-RESULT.png)
+
+
+### GET a single Blog
+
+```http
+  GET /blog/${id}
+```
+
+### GET all Blog
+
+```http
+  GET /blogs
+```
+
+#### Screenshots
+- GET REQ FOR SINGLE BLOG & ALL BLOGS
+
+![fad Screenshot](https://i.ibb.co/Lhk51kjg/SUCCESSFULL-POST-REQ-RESULT.png)
+
+
+## Thank You
